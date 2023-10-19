@@ -4,7 +4,12 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div>
-    <div class="location-pins-container"></div>
+    <div class="location-pins-container">
+      <div class="location-pin-1">
+        <img src="./assets/location-pin-1.svg" class="location-pin-1" alt="Location pin 1">
+      </div>
+
+    </div>
 
 
     <div class="locations-container">
@@ -59,6 +64,13 @@ import HelloWorld from './components/HelloWorld.vue'
   .location-pins-container {
     display: flex;
     height: 70vh;
+  }
+
+  .location-pin-1 {
+    height: 60%;
+    position: relative;
+    top: 10%;
+    left: 15%;
   }
 
   .locations-container {
