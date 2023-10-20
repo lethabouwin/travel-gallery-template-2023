@@ -9,6 +9,22 @@ import HelloWorld from './components/HelloWorld.vue'
         <img src="./assets/location-pin-1.svg" class="location-pin-1" alt="Location pin 1">
       </div>
 
+      <div class="location-pin-2">
+        <img src="./assets/location-pin-2.svg" class="location-pin-2" alt="Location pin 2">
+      </div>
+
+      <div class="location-pin-3">
+        <img src="./assets/location-pin-3.svg" class="location-pin-3" alt="Location pin 3">
+      </div>
+
+      <div class="location-pin-4">
+        <img src="./assets/location-pin-4.svg" class="location-pin-4" alt="Location pin 4">
+      </div>
+
+      <div class="location-pin-5">
+        <img src="./assets/location-pin-5.svg" class="location-pin-5" alt="Location pin 5">
+      </div>
+
     </div>
 
 
@@ -73,6 +89,33 @@ import HelloWorld from './components/HelloWorld.vue'
     left: 15%;
   }
 
+  .location-pin-2 {
+    height: 60%;
+    position: relative;
+    top: 30%;
+    left: 22%;
+  }
+
+  .location-pin-3 {
+    height: 60%;
+    position: relative;
+    top: 15%;
+    left: 22%;
+  }
+
+  .location-pin-4 {
+    height: 60%;
+    position: relative;
+    top: 5%;
+    left: 30%;
+  }
+
+  .location-pin-5 {
+    height: 60%;
+    position: relative;
+    top: 35%;
+    left: 29%;
+  }
   .locations-container {
     border-top: 3px solid white;
 
