@@ -1,6 +1,9 @@
 <script setup>
-import '../App.css' // import '../components/LocationsFooter.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import '../App.css'
+import '../components/LocationsFooter.vue'
 import LocationsFooter from '../components/LocationsFooter.vue';
+
 </script>
 
 <template>
