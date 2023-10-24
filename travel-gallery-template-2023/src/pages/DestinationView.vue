@@ -25,9 +25,9 @@ function fullView(imageSrc) {
                 <input type="radio" name="slide" id="destination-image-2">
                 <input type="radio" name="slide" id="destination-image-3">
 
-                <img :src="image1" src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image" @click="fullView('../assets/pexels-usa-1.svg')" >
-                <img :src="image2" src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image" @click="fullView('../assets/pexels-usa-2.svg')">
-                <img :src="image3" src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image" @click="fullView('../assets/pexels-usa-3.svg')">    
+                <img :src="image1" src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image" @click="fullView('pexels-usa-1.svg')" >
+                <img :src="image2" src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image" @click="fullView('pexels-usa-2.svg')">
+                <img :src="image3" src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image" @click="fullView('pexels-usa-3.svg')">    
             </div>
         </div>
 
