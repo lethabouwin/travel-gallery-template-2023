@@ -279,8 +279,8 @@
   }
 
   .dots label {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     border: solid white 3px;
     cursor: pointer;
@@ -290,19 +290,30 @@
 
   .dots label:hover {
     background-color: white;
+    scale: 1.2;
+  }
+
+  .dots label:checked {
+    background-color: pink;
+    scale: 1.4;
   }
 
   #destination-image-1:checked ~ .destination-image-1 {
     margin-left: 0;
     scale: 1.6;
+    z-index: 1;
   }
 
   #destination-image-2:checked ~ .destination-image-2 {
-    margin-left: -100%;
+    margin-left: 0%;
+    scale: 1.6;
+    z-index: 1;
   }
 
   #destination-image-3:checked ~ .destination-image-3 {
-    margin-left: -200%;
+    margin-left: 0%;
+    scale: 1.6;
+    z-index: 1;
   }
 
   
@@ -314,30 +325,6 @@
     place-items: center;
     /* width: 95vw; */
     position: relative;
-  }
-
-  .prev-arrow {
-    cursor: pointer;
-  }
-
-  .prev-arrow:hover {
-    transform: scale(1.1);
-  }
-
-  .prev-arrow:active {
-    transform: scale(0.9);
-  }
-
-  .next-arrow {
-    cursor: pointer;
-  }
-
-  .next-arrow:hover {
-    transform: scale(1.1);
-  }
-
-  .next-arrow:active {
-    transform: scale(0.9);
   }
 
   /* slider */
