@@ -9,8 +9,6 @@ import LocationsFooter from '../components/LocationsFooter.vue';
     <div class="main-container">
         <!-- carousel -->
         <div class="destination-container">
-            <!-- <img src="../assets/chevron_left.svg" class="prev-arrow" alt=""> -->
-
             <div class="destination-images-container">
                 <input type="radio" name="slide" id="destination-image-1">
                 <input type="radio" name="slide" id="destination-image-2">
@@ -22,7 +20,7 @@ import LocationsFooter from '../components/LocationsFooter.vue';
                 <img src="../assets/Pexels Photo by Gerhard Lipold.svg" class="destination-image-3" alt="pexels image">    
             </div>
 
-            <!-- <img src="../assets/chevron_right.svg" class="next-arrow" alt=""> -->
+
             </div>
 
             <div class="dots">
