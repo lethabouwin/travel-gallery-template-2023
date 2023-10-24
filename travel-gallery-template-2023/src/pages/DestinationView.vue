@@ -14,6 +14,10 @@ function fullView(imageSrc) {
     document.getElementById('fullImageView').style.display = 'block';
 }
 
+function closeView() {
+    document.getElementById('fullImageView').style.display = 'none';
+}
+
 </script>
 
 <template>
@@ -38,7 +42,7 @@ function fullView(imageSrc) {
             </div>
 
             <div id="fullImageView" style="display: none;">
-                <img id="fullImage">
+                <img id="fullImage" @click="closeView">
             </div>
 
         <LocationsFooter />
