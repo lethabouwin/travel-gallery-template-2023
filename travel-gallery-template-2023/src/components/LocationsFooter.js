@@ -4,9 +4,10 @@
     // Create a style element and add CSS rules
     const style = document.createElement('style');
     style.textContent = `
-        body {
+        body { 
             font-family: 'Roboto', sans-serif;
         }
+
         .locations-container {
             border-top: 2px solid white;
             display: flex;
@@ -14,7 +15,8 @@
             gap: 15px;
             margin-left: 50px;
             margin-right: 50px;
-            padding-left: 25px;
+            padding-left: 20px;
+            padding-right: 15px;
             position: relative;
             top: -15px;
             z-index: -1;
@@ -24,24 +26,33 @@
             display: flex;
             flex-direction: column;
             width: 30%;
-          }
+        }
     
-          .location-name {
+        .location-name {
             font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             padding-top: 10px;
             text-align: start;
             color: #606060;
-          }
+        }
         
-          .location-description {
+        .location-description {
             font-size: 10px;
             font-weight: 300;
             color: #7E8F9A;
             text-align: start;
             color: #7E8F9A;
-          }
+        }
+
+        @media screen and (max-width: 550px) {
+            .locations-container {
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: center;
+                padding-top: 20px;
+            }
+        }
     `;
     document.head.appendChild(style);
 
