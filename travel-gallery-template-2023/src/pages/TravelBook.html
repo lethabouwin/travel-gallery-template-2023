@@ -3809,6 +3809,8 @@ a:active {
             <path class="cls-11" d="m254.46,18.48c-.21.64.07,1.14.63,1.11.55-.03,1.17-.58,1.37-1.23.2-.64-.08-1.13-.63-1.1-.55.03-1.16.58-1.37,1.22Z"></path>
           </g>
 
+          
+
           <!-- Pin 1 -->
           <g>
             <g class="cls-1">
@@ -4057,6 +4059,18 @@ DFLIP.defaults.loadMoreCount = 8;
     });
 
 });
+</script>
+
+<script>
+    // Get all the circles
+    const circles = document.querySelectorAll(".location-viewer");
+
+    // Add a click event listener to each circle
+    circles.forEach(circle => {
+        circle.addEventListener("click", () => {
+            console.log("Circle clicked");
+        });
+    });
 </script>
 
 <script src="/src/components/LocationsFooter.js"></script>
