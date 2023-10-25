@@ -12,14 +12,15 @@
             border-top: 2px solid white;
             display: flex;
             flex-direction: row;
-            gap: 15px;
-            margin-left: 50px;
-            margin-right: 50px;
-            padding-left: 20px;
+            gap: 25px;
+            margin-left: 200px;
+            margin-right: 200px;
+            padding-left: 0px;
             padding-right: 15px;
             position: relative;
             top: -15px;
             z-index: -1;
+            justify-content: center;
         }
 
         .location {
@@ -45,13 +46,68 @@
             color: #7E8F9A;
         }
 
-        @media screen and (max-width: 550px) {
+        @media screen and (max-width: 660px) {
             .locations-container {
                 flex-wrap: wrap;
                 gap: 30px;
                 justify-content: center;
                 padding-top: 20px;
+                border-top:none;
+                margin-left: 10px;
+                margin-right: 10px;
+                padding-left: 0px;
+                padding-right: 0px;
             }
+
+            .location-description {
+                text-align: justify;
+            }
+
+            .location-circle-marker-1 {
+                background-image: linear-gradient(to right, #FFA4AA, #FF406F);
+            }
+            
+              .location-circle-marker-1:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+              }
+            
+              .location-circle-marker-2 {
+                background-image: linear-gradient(to right, #FFC853, #FFA157);
+              }
+            
+              .location-circle-marker-2:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+              }
+            
+              .location-circle-marker-3 {
+                background-image: linear-gradient(to right, #7497F3, #856EF4);
+              }
+            
+              .location-circle-marker-3:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+              }
+            
+              .location-circle-marker-4 {
+                background-image: linear-gradient(to right, #E246F0, #8C46F0);
+            }
+            
+              .location-circle-marker-4:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+              }
+            
+              .location-circle-marker-5 {
+                background-image: linear-gradient(to right, #8CC6F0, #8C91F0);
+              }
+            
+              .location-circle-marker-5:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+              }
+            
         }
     `;
     document.head.appendChild(style);
@@ -72,6 +128,10 @@
         location.classList.add('location');
 
         const circleMarker = document.createElement('div');
+        circleMarker.classList.add(`location-circle-marker-${index + 1}`);
+        circleMarker.style.height = '10px';
+        circleMarker.style.width = '10px';
+        circleMarker.style.borderRadius = '50%';
 
 
         const name = document.createElement('span');
