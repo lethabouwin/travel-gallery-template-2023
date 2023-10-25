@@ -8,12 +8,16 @@
             font-family: 'Roboto', sans-serif;
         }
         .locations-container {
-            border-top: 3px solid white;
+            border-top: 2px solid white;
             display: flex;
             flex-direction: row;
-            gap: 30px;
-            margin-left: 20px;
-            margin-right: 20px;
+            gap: 15px;
+            margin-left: 50px;
+            margin-right: 50px;
+            padding-left: 25px;
+            position: relative;
+            top: -15px;
+            z-index: -1;
         }
 
         .location {
@@ -23,7 +27,7 @@
           }
     
           .location-name {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             padding-top: 10px;

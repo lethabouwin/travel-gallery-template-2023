@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>Uwin Iwin Travel</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+
   <!-- Stylesheet -->
     <!-- <link rel="stylesheet" href="/src/pages/TravelBookStyle.css" type="text/css"> -->
   
@@ -54,7 +56,7 @@
       padding:20px!important;
       /* //box-shadow:0px 1px 3px rgba(0,0,0,.3); */
       padding-top: 77px !important;
-      padding-bottom: 77px !important;
+      padding-bottom: 0px !important;
     }
     /* .bookspace{
       //height: 78vh;      
@@ -178,16 +180,12 @@ a:active {
   
 <div class="container">
 <div class="row" style="text-align:center;">
-    <div class="col-xs-12 header" style="background:white;color:white;padding: 5px; margin-bottom:5px;
-    /* //box-shadow: 0 1px 2px rgba(0,0,0,0.22); */
-    ">
-      <!-- <img src="assets/images/UI - Logo-02.png" alt="logo image" width="60px;"> -->
-      <!-- <img src="../public/images//UI - Logo-02.png" alt="logo image" width="60px;"> -->
+    <div class="col-xs-12 header" style="background:white;color:white;padding: 5px; margin-bottom:5px; ">
+
       <img src="/public/images/UI - Logo-02.png" alt="logo image" width="60px;">
 
-     
-
       
+
     </div>
 </div>
 </div>
@@ -201,7 +199,8 @@ a:active {
       ">
         <!--Map Loading...
         -->
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 701.63 314.52" style="width:70%">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 701.63 314.52" style="width:90%">
   <defs>
     <style>
       .cls-1 {
@@ -291,9 +290,6 @@ a:active {
         fill: url(#Degradado_sin_nombre_91-2);
       }
     </style>
-
-
-
 
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
       <feOffset dx="2.42" dy="1.41"></feOffset>
@@ -3861,12 +3857,15 @@ a:active {
 </svg>
 
 <!-- World map -->
-<!-- <div>
-    <img src="/public/world-map-reduced.svg" alt="" width="900px">
-</div> -->
+
       </div>
+      
   </div>
 </div>
+
+    <div class="locations-container"></div>
+
+
 <div class="container" style="margin-bottom:150px!important;">
   <div class="row">
       <div class="col-xs-12 bookspace" style="padding-bottom:10px;padding-top:10px;">
@@ -4054,5 +4053,7 @@ DFLIP.defaults.loadMoreCount = 8;
 
 });
 </script>
+
+<script src="/src/components/LocationsFooter.js"></script>
 </body>
 </html>
