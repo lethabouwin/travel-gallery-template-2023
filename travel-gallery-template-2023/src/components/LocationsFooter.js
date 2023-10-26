@@ -149,3 +149,9 @@
         locationsContainer.appendChild(location);
     });
 })();
+
+
+/*
+    logic to open DestinationView on click of circle in TravelBook.html
+
+*/
