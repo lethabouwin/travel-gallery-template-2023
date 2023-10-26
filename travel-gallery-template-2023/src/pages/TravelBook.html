@@ -352,6 +352,7 @@
     <g id="Layer_2" data-name="Layer 2">
       <g id="OBJECTS">
         <g>
+          <!-- Location Circles -->
           <!-- IDs are attached to reference which location's overlay to load - same IDs are attached to location pins -->
           <rect class="cls-3" x="78.62" y="300.97" width="80%" height="auto"></rect>
           <circle class="cls-16 location-viewer" id="location-1" cx="79.31" cy="303.49" r="9.68" transform="translate(-234.29 310.64) rotate(-76.66)"></circle>
@@ -4087,13 +4088,11 @@ DFLIP.defaults.loadMoreCount = 8;
         });
     });
 
-    // when the location-1 pin/circle is clicked, open the DestinationView.js file as a layer on top of the page
-    
     
   })
 </script>
 
-<script src="/src/components/LocationsFooter.js"></script>
-<script src="/src/components/DestinationView.js"></script>
+<script src="/src/components/LocationsFooter.js" type="module"></script>
+<script src="/src/components/DestinationView.js" type="module"></script>
 </body>
 </html>
