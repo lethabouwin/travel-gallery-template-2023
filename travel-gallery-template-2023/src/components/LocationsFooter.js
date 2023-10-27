@@ -40,10 +40,9 @@
         
         .location-description {
             font-size: 10px;
-            font-weight: 300;
+            font-weight: 600;
             color: #7E8F9A;
             text-align: start;
-            color: #7E8F9A;
         }
 
         @media screen and (max-width: 660px) {
@@ -116,11 +115,11 @@
     const locationsContainer = document.querySelector('.locations-container');
 
     const locationsData = [
-        { name: 'Port Louis, Mauritius', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'Dublin, Ireland', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
+        { name: 'Port Louis, Mauritius', description: `BMW South Africa's trip to Mauritius.` },
+        { name: 'Dublin, Ireland', description: `Sanlam's trip to Ireland.` },
+        { name: 'In Progress', description: 'This trip is in progress!' },
+        { name: 'In Progress', description: 'This trip is in progress!' },
+        { name: 'In Progress', description: 'This trip is in progress!' },
     ];
 
     locationsData.forEach((locationData, index) => {
