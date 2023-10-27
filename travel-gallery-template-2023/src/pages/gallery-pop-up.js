@@ -12,10 +12,6 @@ const imageAltTexts = [
   "pexels image"
 ]
 
-
-
-
-// add html to the page
 document.addEventListener("DOMContentLoaded", function() {
   // Get the "location-1" element
   const location1 = document.getElementById("location-1");
@@ -24,32 +20,35 @@ document.addEventListener("DOMContentLoaded", function() {
   const modal = document.getElementById("gallery-pop-up");
   modal.id = "gallery-pop-up";
 
+  // Create a div to hold the images
+  const imagesContainer = document.createElement("div");
+  imagesContainer.className = "destination-images-container";
+
+  // Populate the imagesContainer with images using imageSources
+  imageSources.forEach((imageSource, index) => {
+    const img = document.createElement("img");
+    img.src = imageSource;
+    img.alt = imageAltTexts[index];
+    img.className = `destination-image-${index + 1}`;
+    imagesContainer.appendChild(img);
+  });
+
   // get html
-  modal.innerHTML = ` 
+  modal.innerHTML = `
     <div></div>
     <div class="modal-content">
       <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
     </div>
    
-
     <div class="destination-main-container">
-
-      <div class="destination-images-container">
-        <input type="radio" name="slide" id="destination-image-1">
-        <input type="radio" name="slide" id="destination-image-2">
-        <input type="radio" name="slide" id="destination-image-3">
-
-        <img src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image">
-        <img src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image">
-        <img src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image">
-        <img src="../assets/pexels-usa-4.svg" class="destination-image-4" alt="pexels image">
-        </div>
-
-     
+      <div>
+        <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
+      </div>
+      ${imagesContainer.outerHTML}
     </div>
   `;
 
-//   Append the modal to the body
+  // Append the modal to the body
   document.body.appendChild(modal);
 
   // Function to open the modal
@@ -64,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.documentElement.style.overflow = 'auto'; 
   }
 
-
   // When "location-1" is clicked, display the modal
   location1.addEventListener("click", function() {
     modal.style.display = "block";
@@ -76,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
   closeButton.addEventListener("click", function() {
     modal.style.display = "none";
     closeModal();
-  })
+  });
 
   // to add an overlay to the modal with the name of the image that was clicked
   const destinationImages = document.querySelectorAll(".destination-images-container img");
@@ -85,29 +83,26 @@ document.addEventListener("DOMContentLoaded", function() {
       fullView(destinationImage.src);
     });
   });
-
-  // modal design
-
 });
 
-// add styling to the modal with style tags
+// Add the modal styles
 const modalStyle = document.createElement('style');
 modalStyle.innerHTML = `
 #gallery-pop-up {
-    color: green;
     display: block;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background:silver;
+    background: silver;
     z-index: 999; 
     text-align: center;
     font-family: 'Roboto', sans-serif;
     width: 100%;
     height: 100vh;
     box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+    overflow: auto;
   }
 
   .modal-content {
@@ -122,7 +117,10 @@ modalStyle.innerHTML = `
 
   #close-modal:hover {
     transform: scale(1.2);
-    
+  }
+
+  .logo {
+    width: 170px;
   }
 
   .destination-main-container {
@@ -159,32 +157,6 @@ modalStyle.innerHTML = `
     display: none;
   }
 
-  .dots {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-  }
-
-  .dots label {
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    border: solid white 3px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    margin: 5px;
-  }
-
-  .dots label:hover {
-    background-color: white;
-    scale: 1.2;
-  }
-
-  .dots label:checked {
-    background-color: pink;
-    scale: 1.4;
-  }
-
   #destination-image-1:checked ~ .destination-image-1 {
     margin-left: 0;
     scale: 1.6;
@@ -202,10 +174,6 @@ modalStyle.innerHTML = `
       scale: 1.6;
       z-index: 1;
   }
-
 `;
 
 document.head.appendChild(modalStyle);
-
-
-
