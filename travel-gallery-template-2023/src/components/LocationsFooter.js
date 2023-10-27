@@ -116,7 +116,7 @@
     const locationsContainer = document.querySelector('.locations-container');
 
     const locationsData = [
-        { name: 'Alaska, USA', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
+        { name: 'Port Louis, Mauritius', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
         { name: 'Dublin, Ireland', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
         { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
         { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
