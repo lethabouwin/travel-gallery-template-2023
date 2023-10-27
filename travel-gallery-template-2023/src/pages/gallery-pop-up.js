@@ -1,3 +1,20 @@
+const imageSources = [
+  "../assets/pexels-usa-1.svg",
+  "../assets/pexels-usa-2.svg",
+  "../assets/pexels-usa-3.svg",
+  "../assets/pexels-usa-4.svg"
+];
+
+const imageAltTexts = [
+  "pexels image",
+  "pexels image",
+  "pexels image",
+  "pexels image"
+]
+
+
+
+
 // add html to the page
 document.addEventListener("DOMContentLoaded", function() {
   // Get the "location-1" element
@@ -7,11 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const modal = document.getElementById("gallery-pop-up");
   modal.id = "gallery-pop-up";
 
-
   // get html
   modal.innerHTML = ` 
-    <div>POP UP</div>
-    <button id="close-modal">Close</button>
+    <div></div>
+    <div class="modal-content">
+      <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
+    </div>
+   
 
     <div class="destination-main-container">
 
@@ -20,26 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
         <input type="radio" name="slide" id="destination-image-2">
         <input type="radio" name="slide" id="destination-image-3">
 
-        <img src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image" onClick="fullView('pexels-usa-1.svg')" >
-        <img src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image" onClick="fullView('pexels-usa-2.svg')">
-        <img src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image" onClick="fullView('pexels-usa-3.svg')">
-      </div>
+        <img src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image">
+        <img src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image">
+        <img src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image">
+        <img src="../assets/pexels-usa-4.svg" class="destination-image-4" alt="pexels image">
+        </div>
 
-      <div class="dots">
-        <label for="destination-image-1"></label>
-        <label for="destination-image-2"></label>
-        <label for="destination-image-3"></label>
-      </div>
-    
-      <div id="fullImageView" style="display: none;">
-        <img id="fullImage" onClick="closeView">
-      </div>
-    
-    
-    
+     
     </div>
-    
-  
   `;
 
 //   Append the modal to the body
@@ -48,13 +55,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Function to open the modal
   function openModal() {
     modal.style.display = "block";
-    document.documentElement.style.overflow = 'hidden';  // Disable scrolling
+    document.documentElement.style.overflow = 'hidden';  
   }
 
   // Function to close the modal
   function closeModal() {
     modal.style.display = "none";
-    document.documentElement.style.overflow = 'auto';  // Enable scrolling
+    document.documentElement.style.overflow = 'auto'; 
   }
 
 
@@ -70,18 +77,18 @@ document.addEventListener("DOMContentLoaded", function() {
     modal.style.display = "none";
     closeModal();
   })
+
+  // to add an overlay to the modal with the name of the image that was clicked
+  const destinationImages = document.querySelectorAll(".destination-images-container img");
+  destinationImages.forEach((destinationImage) => {
+    destinationImage.addEventListener("click", function() {
+      fullView(destinationImage.src);
+    });
+  });
+
+  // modal design
+
 });
-
-  // FULL SCREEN FUNCTIONALITY
-  function fullView(imageSrc) {
-    document.getElementById('fullImage').src = imageSrc;
-    document.getElementById('fullImageView').style.display = 'block';
-}
-
-function closeView() {
-    document.getElementById('fullImageView').style.display = 'none';
-}
-
 
 // add styling to the modal with style tags
 const modalStyle = document.createElement('style');
@@ -89,7 +96,6 @@ modalStyle.innerHTML = `
 #gallery-pop-up {
     color: green;
     display: block;
-    border: 2px solid red;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -99,7 +105,24 @@ modalStyle.innerHTML = `
     z-index: 999; 
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    width: 90%;
+    width: 100%;
+    height: 100vh;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+    justify-content: flex-end;
+    display: flex;
+    padding: 10px;
+  }
+
+  #close-modal {
+    cursor: pointer;  
+  }
+
+  #close-modal:hover {
+    transform: scale(1.2);
+    
   }
 
   .destination-main-container {
@@ -128,7 +151,7 @@ modalStyle.innerHTML = `
 
   .destination-images-container img:hover {
     cursor: pointer;
-    transform: scale(1.01);
+    transform: scale(1.2);
     box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
   }
 
@@ -139,6 +162,7 @@ modalStyle.innerHTML = `
   .dots {
     display: flex;
     justify-content: center;
+    padding-top: 3rem;
   }
 
   .dots label {
