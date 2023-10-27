@@ -117,10 +117,10 @@
 
     const locationsData = [
         { name: 'Alaska, USA', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'Sao Paulo, Brazil', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'Lagos, Nigeria', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'St Petersburg, Russia', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
-        { name: 'Sydney, Australia', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
+        { name: 'Dublin, Ireland', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
+        { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
+        { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
+        { name: 'In Progress', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maxime quibusdam blanditiis.' },
     ];
 
     locationsData.forEach((locationData, index) => {
