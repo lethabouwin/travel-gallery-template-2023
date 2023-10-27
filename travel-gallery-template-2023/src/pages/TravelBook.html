@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title>Uwin Iwin Travel</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  
   <!-- Flipbook StyleSheet -->
   <link href="https://nu6.netuwin.co.za/nu6/templates/ui-books/resources/css/dflip.min.css" rel="stylesheet" type="text/css">
   <!-- Icons Stylesheet -->
@@ -3877,37 +3876,36 @@
 <div class="locations-container"></div>
 
 
-
 <div class="container" style="margin-bottom:150px!important;">
   <div class="row">
       <div class="col-xs-12 bookspace" style="padding-bottom:10px;padding-top:10px;">
         <div class="bookshelf">
           <div class="covers">
               <!-- Book 1 -->
-              <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/EmployeeRewardRecognition.pdf" thumb="/public/images/EmployeeRewardRecognition-1.jpg">Employee Reward & Recognition Programme</div>
+              <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" style="height: 153px;" src="../assets/books/Document-Holders.pdf" thumb="../assets/images/Document-Holders.jpg">Document Holders</div>
               <!-- Book 2 -->
-              <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/IncentiveTravel.pdf" thumb="/public/images/IncentiveTravel-1.jpg">Incentive Travel</div>
+              <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" src="../assets/books/Emergency-Care-Card.pdf" thumb="../assets/images/Emergency-Care-Card.jpg">Emergency Care Card</div>
               <!-- Book 3 -->
-              <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/Infographic.pdf" thumb="/public/images/Infographic-1.jpg">Our Infographic</div>
+              <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" src="../assets/books/Itinerary.pdf" thumb="../assets/images/Itinerary.jpg">Itinerary</div>
               <!-- Book 4 -->
-              <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/KudoshCard.pdf" thumb="/public/images/KudoshCard-1.jpg">Kudosh Card</div>
+              <!--<div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="assets/books/KudoshCard.pdf" thumb="assets/images/KudoshCard-1.jpg">Kudosh Card</div>-->
           </div>
-            <img class="shelf-img" src="/public/images/shelf_wood.png">
+            <img class="shelf-img" src="../assets/images/shelf_wood.png">
           
         </div>
         <div class="bookshelf">
           <div class="covers">
             <!-- Book 1 -->
-            <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/LeadershipSession.pdf" thumb="/public/images/LeadershipSession.jpg">Leadership Coaching</div>
+            <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" src="../assets/books/Luggage-Tag.pdf" thumb="../assets/images/Luggage-Tag.jpg">Luggage Tag</div>
             <!-- Book 2 -->
-            <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/SalesChannelProgramme.pdf" thumb="/public/images/SalesChannelProgramme-1.jpg">Sales & Channel Incentive Programme</div>
+            <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" src="../assets/books/Ticket-Cover.pdf" thumb="../assets/images/Ticket-Cover.jpg">Ticket Cover</div>
             <!-- Book 3 -->
-            <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/U-GoIncentiveTravelVoucher.pdf" thumb="/public/images/U-GoIncentiveTravelVoucher.jpg">U-Go Travel Voucher</div>
+            <!--<div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="assets/books/U-GoIncentiveTravelVoucher.pdf" thumb="assets/images/U-GoIncentiveTravelVoucher.jpg">U-Go Travel Voucher</div>-->
             <!-- Book 4 -->
-            <div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="/public/books/EMPLOYEE-SUCESS-ECOSYSTEM.pdf" thumb="/public/images/EMPLOYEE-SUCESS-ECOSYSTEM_Page_1.jpg">Employee Success Ecosystem</div>
+            <!--<div class="_df_thumb _df_thumb col-xs-12 col-lg-4" source="assets/books/EMPLOYEE-SUCESS-ECOSYSTEM.pdf" thumb="assets/images/EMPLOYEE-SUCESS-ECOSYSTEM_Page_1.jpg">Employee Success Ecosystem</div>-->
             <!---->
           </div>
-          <img class="shelf-img" src="/public/images/shelf_wood.png">        
+          <img class="shelf-img" src="../assets/images/shelf_wood.png">        
         </div>
         
         <script>            
@@ -3924,9 +3922,7 @@
       <p style="font-family: Roboto">Address: 10 Landsdowne Road,Bryanston Sandton&nbsp;&nbsp;|&nbsp;&nbsp;Tel: <a style="font-family: Roboto" href="Tel:+27 11 557 5700">+27 11 557 5700</a>&nbsp;&nbsp;|&nbsp;&nbsp;Email: <a style="font-family: Roboto" style="color: #fff;" href="mailto:info@uwiniwin.co.za">info@uwiniwin.co.za</a></p>
     </div>
     
-    <div class="col-xs-6 col-md-4 col-lg-4" 
-        style="width:40%;float:left;margin-top:20px;"
-    >      
+    <div class="col-xs-6 col-md-4 col-lg-4" style="width:40%;float:left;margin-top:20px;">      
       <p style="font-family: Roboto">© 2023 Uwiniwin, All Rights Reserved.</p>
     </div>
     
@@ -4064,32 +4060,6 @@ DFLIP.defaults.loadMoreCount = 8;
     });
 
 });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get all the circles
-    const circles = document.querySelectorAll(".location-viewer");
-
-    // modal functionality
-    function openModal() {
-      const modal = document.querySelector('.destination-main-container');
-      modal.style.display = 'block';
-    }
-
-    // add a click event listener to each circle and pin and use the ID to console log which location was clicked'
-    circles.forEach(circle => {
-        circle.addEventListener("click", () => {
-            console.log(`${circle.id} was clicked`);
-
-            if (circle.id === "location-1") {
-                openModal();
-            }
-        });
-    });
-
-    
-  })
 </script>
 
 <script src="/src/components/LocationsFooter.js" type="module"></script>
