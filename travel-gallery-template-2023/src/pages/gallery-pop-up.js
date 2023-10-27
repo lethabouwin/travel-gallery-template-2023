@@ -15,6 +15,29 @@ document.addEventListener("DOMContentLoaded", function() {
     <div>POP UP</div>
     <button id="close-modal">Close</button>
 
+    <div class="destination-main-container">
+
+      <div class="destination-images-container">
+        <input type="radio" name="slide" id="destination-image-1">
+        <input type="radio" name="slide" id="destination-image-2">
+        <input type="radio" name="slide" id="destination-image-3">
+
+        <img src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image" @click="fullView('pexels-usa-1.svg')" >
+        <img src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image" @click="fullView('pexels-usa-2.svg')">
+        <img src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image" @click="fullView('pexels-usa-3.svg')">
+      </div>
+
+      <div class="dots">
+        <label for="destination-image-1"></label>
+        <label for="destination-image-2"></label>
+        <label for="destination-image-3"></label>
+      </div>
+    
+    
+    
+    
+    
+    </div>
     
   
   `;
@@ -53,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const modalStyle = document.createElement('style');
 modalStyle.innerHTML = `
 #gallery-pop-up {
-    color: pink;
+    color: green;
     display: block;
     border: 2px solid red;
     position: fixed;
@@ -61,8 +84,88 @@ modalStyle.innerHTML = `
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
+    background:silver;
+    z-index: 999; 
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .destination-main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .destination-images-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+  } 
+
+  .destination-images-container img {
+    transition: all 0.15s ease;
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+  }
+
+  .destination-images-container img:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .destination-images-container input {
+    display: none;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dots label {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: solid white 3px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin: 5px;
+  }
+
+  .dots label:hover {
     background-color: white;
-    z-index: 999;
+    scale: 1.2;
+  }
+
+  .dots label:checked {
+    background-color: pink;
+    scale: 1.4;
+  }
+
+  #destination-image-1:checked ~ .destination-image-1 {
+    margin-left: 0;
+    scale: 1.6;
+    z-index: 1;
+  }
+
+  #destination-image-2:checked ~ .destination-image-2 {
+    margin-left: 0%;
+    scale: 1.6;
+    z-index: 1;
+  }
+
+  #destination-image-3:checked ~ .destination-image-3 {
+      margin-left: 0%;
+      scale: 1.6;
+      z-index: 1;
   }
 
 `;
