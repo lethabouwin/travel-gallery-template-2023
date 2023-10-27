@@ -1,7 +1,4 @@
 // add html to the page
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
   // Get the "location-1" element
   const location1 = document.getElementById("location-1");
@@ -9,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Get the modal element
   const modal = document.getElementById("gallery-pop-up");
   modal.id = "gallery-pop-up";
+
 
   // get html
   modal.innerHTML = ` 
@@ -22,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
         <input type="radio" name="slide" id="destination-image-2">
         <input type="radio" name="slide" id="destination-image-3">
 
-        <img src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image" @click="fullView('pexels-usa-1.svg')" >
-        <img src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image" @click="fullView('pexels-usa-2.svg')">
-        <img src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image" @click="fullView('pexels-usa-3.svg')">
+        <img src="../assets/pexels-usa-1.svg" class="destination-image-1" alt="pexels image" onClick="fullView('pexels-usa-1.svg')" >
+        <img src="../assets/pexels-usa-2.svg" class="destination-image-2" alt="pexels image" onClick="fullView('pexels-usa-2.svg')">
+        <img src="../assets/pexels-usa-3.svg" class="destination-image-3" alt="pexels image" onClick="fullView('pexels-usa-3.svg')">
       </div>
 
       <div class="dots">
@@ -33,7 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
         <label for="destination-image-3"></label>
       </div>
     
-    
+      <div id="fullImageView" style="display: none;">
+        <img id="fullImage" onClick="closeView">
+      </div>
     
     
     
@@ -72,6 +72,17 @@ document.addEventListener("DOMContentLoaded", function() {
   })
 });
 
+  // FULL SCREEN FUNCTIONALITY
+  function fullView(imageSrc) {
+    document.getElementById('fullImage').src = imageSrc;
+    document.getElementById('fullImageView').style.display = 'block';
+}
+
+function closeView() {
+    document.getElementById('fullImageView').style.display = 'none';
+}
+
+
 // add styling to the modal with style tags
 const modalStyle = document.createElement('style');
 modalStyle.innerHTML = `
@@ -88,6 +99,7 @@ modalStyle.innerHTML = `
     z-index: 999; 
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    width: 90%;
   }
 
   .destination-main-container {
@@ -101,9 +113,8 @@ modalStyle.innerHTML = `
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    gap: 3rem;
+    padding: 3rem;
+    gap: 2rem;
     align-items: center;
     flex-wrap: wrap;
   } 
@@ -111,8 +122,8 @@ modalStyle.innerHTML = `
   .destination-images-container img {
     transition: all 0.15s ease;
     object-fit: cover;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
   }
 
   .destination-images-container img:hover {
@@ -169,6 +180,7 @@ modalStyle.innerHTML = `
   }
 
 `;
+
 document.head.appendChild(modalStyle);
 
 
