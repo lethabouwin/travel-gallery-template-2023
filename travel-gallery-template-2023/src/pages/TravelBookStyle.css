@@ -1,0 +1,155 @@
+
+    body{
+    margin:0px;
+    background:silver;
+      font-family:Roboto;
+    
+    }
+    body::after {
+  content: "";
+  /* //background: url(assets/images/CameraFoodiePRO20200210_150618.jpg); */
+  background:silver;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+    .ti-sharethis {
+        visibility: hidden;
+    }
+    .header img {
+      padding:5px;
+      width:179px;
+      margin-top:11px;
+    }
+    .header{
+      background: transparent!important;
+      height: 125px;
+      margin:0px!important;
+      padding:0px!important;
+      /* //box-shadow:0px 1px 3px rgba(0,0,0,.3); */
+    }
+  
+    .header2{
+      background: transparent!important;
+      /* //height: 125px; */
+      margin:0px!important;
+      padding:20px!important;
+      /* //box-shadow:0px 1px 3px rgba(0,0,0,.3); */
+      padding-top: 77px !important;
+      padding-bottom: 77px !important;
+    }
+    /* .bookspace{
+      //height: 78vh;      
+    } */
+    .footer{
+      font-size: 12px;
+      height: 80px;
+      /* //width: 100%; */
+      /* //position: fixed; */
+      bottom: 0px;
+      background: #1d407e;
+      color: white;
+      padding: 15px;
+      /* //margin-left: -10px; */
+      /* //margin-top:25px; */
+      text-align: left;
+      
+    }
+    /* thumbnail is 140px x 200px */
+    ._df_thumb ._df_book-title{
+    background:#1d407e;
+      opacity: 1;
+  bottom: 0;
+      min-height: 40px;
+  }
+  
+  
+  ._df_thumb2 {
+  border: 0;
+  width: 140px;
+  height: 117px;
+  text-align: center;
+}
+  ._df_thumb3 {
+  border: 0;
+  width: 140px;
+  height: 117px;
+  text-align: center;
+}
+  
+  .bookshelf .thumb{
+        display: inline-block;
+        cursor: pointer;
+        margin: 0px 0.5%;
+        width: 15% !important;
+        box-shadow:0px 1px 3px rgba(0,0,0,.3);
+        max-width:100px;
+    }
+    .bookshelf .thumb img{
+        width:100%;
+        display:block;
+        /* vertical-align:top; */
+    }
+    .bookshelf .shelf-img{
+        z-index:0;
+        height: auto;
+        max-width: 100%;
+        vertical-align: top;
+        margin-top:-12px;
+    }
+    .bookshelf .covers{
+        width:100%;
+        height:auto;
+        z-index: 99;
+        position: relative;
+        text-align:center;
+    }
+    .bookshelf{
+        text-align: center;
+        padding:0px;
+    }
+    /* if we need to change the floating page bg */
+    /* .df-floating{
+    //background: #0075c9 !important;
+    } */
+    
+    
+    .vertical-center {
+  margin: 0 auto;
+  position: absolute;
+  top: 50px;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+._df_thumb {
+  border: 0;
+  width: 140px;
+  height: 212px;
+  text-align: center;
+  opacity: 1;
+  bottom: 0;
+}
+   /* unvisited link */
+a:link {
+  color: #fff;text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: #fff;text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: #fff;text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: #fff;text-decoration: none;
+} 

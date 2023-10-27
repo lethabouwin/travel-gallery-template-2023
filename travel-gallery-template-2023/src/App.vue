@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import './App.css'
 
 import '../src/Pages/WorldView.vue'

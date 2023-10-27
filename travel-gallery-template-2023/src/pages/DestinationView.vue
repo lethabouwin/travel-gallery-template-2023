@@ -1,6 +1,15 @@
 <!-- Change to Javascript and export to main html -->
 
 <script setup>
+const imageSources = [
+  "../assets/pexels-usa-1.svg",
+  "../assets/pexels-usa-2.svg",
+  "../assets/pexels-usa-3.svg",
+  "../assets/pexels-usa-4.svg",
+  
+];
+
+
     function fullView(imageSrc) {
         document.getElementById('fullImage').src = imageSrc;
         document.getElementById('fullImageView').style.display = 'block';
@@ -14,6 +23,11 @@
 
 <template>
     <div class="destination-main-container">
+
+        <div>
+            <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
+        </div>
+        
         <!-- carousel -->
             <div class="destination-images-container">
                 <input type="radio" name="slide" id="destination-image-1">
@@ -31,12 +45,6 @@
                 <label for="destination-image-3"></label>
             </div>
 
-            <div class="load-more-btn">
-                <button>
-                    Load More
-                </button>
-            </div>
-
             <div id="fullImageView" style="display: none;">
                 <img id="fullImage" @click="closeView">
             </div>
@@ -46,10 +54,10 @@
 
 <style scoped>
 /* DESTINATION VIEW styling */
-html {
-    height: 100%;
-}
-
+    .logo {
+        border: 3px solid red;
+        width: 100px;
+    }
     .destination-main-container {
         align-items: center;
         width: 100vw;
@@ -62,24 +70,12 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-top: 2rem;
-        /* add no scroll to the background */
-        /* background-attachment: fixed; */
-
-
     }
-    .destination-container {
-        display: flex;
-        flex-direction: row;
-        /* height: 70vh;  */
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
+   
     .destination-images-container {
         display: flex;
         flex-direction: row;
-        height: 100vh;
+        /* height: 100vh; */
         justify-content: center;
         padding-left: 3rem;
         padding-right: 3rem;
@@ -93,7 +89,6 @@ html {
         object-fit: cover;
         min-height: 25%;
         min-width: 20%;
-
     }
 
     .destination-images-container img:hover {
@@ -155,16 +150,12 @@ html {
 
     /* media queries */
     @media screen and (max-width: 643px) {
-        /* .destination-main-container {
-            background-color: grey;
+        .destination-main-container {
             background-image: none;
-          
-        } */
+        }
 
         .dots {
             display: none;
         }
     }
-
-
 </style>
