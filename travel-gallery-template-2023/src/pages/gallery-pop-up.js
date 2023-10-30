@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
       
       <div class="location-name">
-        <p>Mauritius - BMW</p>
+        <h2 style="color: white; letter-spacing: 5px">Mauritius - BMW</h2>
       </div>
       
       ${imagesContainer.outerHTML}
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const modalStyle = document.createElement('style');
 modalStyle.innerHTML = `
 #gallery-pop-up {
-    display: block;
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
