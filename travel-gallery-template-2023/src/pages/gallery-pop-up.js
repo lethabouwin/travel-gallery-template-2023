@@ -46,36 +46,11 @@ const imageSources = [
   
 ];
 
-const imageAltTexts = [
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-  "pexels image",
-]
 
 document.addEventListener("DOMContentLoaded", function() {
   // Get the "location-1" element
   const location1 = document.getElementById("location-1");
+  const location2 = document.getElementById("location-2");
 
   // Get the modal element
   const modal = document.getElementById("gallery-pop-up");
@@ -89,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
   imageSources.forEach((imageSource, index) => {
     const img = document.createElement("img");
     img.src = imageSource;
-    img.alt = imageAltTexts[index];
+    img.alt = 'destination image';
     img.className = `destination-image-${index + 1}`;
     imagesContainer.appendChild(img);
   });
@@ -134,6 +109,12 @@ document.addEventListener("DOMContentLoaded", function() {
     modal.style.display = "block";
     openModal();
   });
+
+  // When "location-2" is clicked, display the modal
+  location2.addEventListener("click", function() {
+    modal.style.display = "block";
+    openModal();
+  })
 
   // When the 'close' button is clicked, close the modal
   const closeButton = document.getElementById("close-modal");
