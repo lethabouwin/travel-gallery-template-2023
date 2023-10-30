@@ -1,4 +1,6 @@
-const imageSources = [
+
+// images for location-1
+const imagesMauritius = [
   "../assets/imagesMauritiusBMW/BMW_030.JPG",
   "../assets/imagesMauritiusBMW/BMW_033.JPG",
   "../assets/imagesMauritiusBMW/BMW_034.JPG",
@@ -43,78 +45,82 @@ const imageSources = [
   "../assets/imagesMauritiusBMW/Photo-151.jpg",
   "../assets/imagesMauritiusBMW/Photo-162.jpg",
   "../assets/imagesMauritiusBMW/Photo-163.jpg",
-  
 ];
+
+// images for location-2
+const imagesDublin = [
+  "../assets/imagesDublinSanlam/EliteDinner1.jpg",
+  "../assets/imagesDublinSanlam/EliteDinner2.JPG",
+  "../assets/imagesDublinSanlam/EliteDinner3.JPG"
+]
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Get the "location-1" element
+  // Get the "location-x" elements
   const location1 = document.getElementById("location-1");
   const location2 = document.getElementById("location-2");
 
   // Get the modal element
   const modal = document.getElementById("gallery-pop-up");
-  modal.id = "gallery-pop-up";
 
   // Create a div to hold the images
   const imagesContainer = document.createElement("div");
   imagesContainer.className = "destination-images-container";
 
-  // Populate the imagesContainer with images using imageSources
-  imageSources.forEach((imageSource, index) => {
-    const img = document.createElement("img");
-    img.src = imageSource;
-    img.alt = 'destination image';
-    img.className = `destination-image-${index + 1}`;
-    imagesContainer.appendChild(img);
-  });
+  // Function to populate the modal with images
+  function populateModal(locationImages, locationName) {
+    imagesContainer.innerHTML = '';
+    locationImages.forEach((image, index) => {
+      const img = document.createElement("img");
+      img.src = image;
+      img.alt = 'destination image';
+      img.className = `destination-image-${index + 1}`;
+      imagesContainer.appendChild(img);
+    });
 
-  // get html
-  modal.innerHTML = `
-    <div></div>
-    <div class="modal-content">
-      <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
-    </div>
-   
-    <div class="destination-main-container">
-      <div>
-        <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
+    // Update the modal content
+    modal.innerHTML = `
+      <div class="modal-content">
+        <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
       </div>
-      
-      <div class="location-name">
-        <h2 style="color: white; letter-spacing: 5px">Mauritius - BMW</h2>
-      </div>
-      
-      ${imagesContainer.outerHTML}
-    </div>
-  `;
 
-  // Append the modal to the body
-  document.body.appendChild(modal);
+      <div class="destination-main-container">
+        <div>
+          <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
+        </div>
+
+        <div class="location-name">
+          <h2 style="color: white; letter-spacing: 5px">${locationName}</h2>
+        </div>
+
+        ${imagesContainer.outerHTML}
+      </div>
+    `;
+  }
 
   // Function to open the modal
   function openModal() {
     modal.style.display = "block";
-    document.documentElement.style.overflow = 'hidden';  
+    document.documentElement.style.overflow = 'hidden';
   }
 
   // Function to close the modal
   function closeModal() {
     modal.style.display = "none";
-    document.documentElement.style.overflow = 'auto'; 
+    document.documentElement.style.overflow = 'auto';
   }
 
-  // When "location-1" is clicked, display the modal
+  // When "location-1" is clicked, display the modal with imagesMauritius
   location1.addEventListener("click", function() {
-    modal.style.display = "block";
     openModal();
+    populateModal(imagesMauritius, "Mauritius -  BMW");
   });
 
-  // When "location-2" is clicked, display the modal
+  // When "location-2" is clicked, display the modal with imagesDublin
   location2.addEventListener("click", function() {
-    modal.style.display = "block";
     openModal();
-  })
+    populateModal(imagesDublin, "Dublin - Sanlam");
+  });
 
   // When the 'close' button is clicked, close the modal
   const closeButton = document.getElementById("close-modal");
@@ -123,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
     closeModal();
   });
 
-  // to add an overlay to the modal with the name of the image that was clicked
+  // Add an overlay to the modal with the name of the image that was clicked
   const destinationImages = document.querySelectorAll(".destination-images-container img");
   destinationImages.forEach((destinationImage) => {
     destinationImage.addEventListener("click", function() {
