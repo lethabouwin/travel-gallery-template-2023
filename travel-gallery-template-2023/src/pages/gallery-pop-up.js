@@ -110,6 +110,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.documentElement.style.overflow = 'auto';
   }
 
+  // When the user clicks the "close-modal" img, the modal should close 
+  modal.addEventListener("click", function() {
+    if (event.target.id === "close-modal") {
+      closeModal();
+    }
+  })
+
+
   // When "location-1" is clicked, display the modal with imagesMauritius
   location1.addEventListener("click", function() {
     openModal();
@@ -122,12 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
     populateModal(imagesDublin, "Dublin - Sanlam");
   });
 
-  // When the 'close' button is clicked, close the modal
-  const closeButton = document.getElementById("close-modal");
-  closeButton.addEventListener("click", function() {
-    modal.style.display = "none";
-    closeModal();
-  });
 
   // Add an overlay to the modal with the name of the image that was clicked
   const destinationImages = document.querySelectorAll(".destination-images-container img");
