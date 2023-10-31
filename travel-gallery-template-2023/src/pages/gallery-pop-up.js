@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
 
       <div class="destination-main-container">
-        <div id="logo-container">
+        <div class="logo-container">
           <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
         </div>
 
@@ -80,44 +80,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
   
   // reference the logo container. on click, open full screen
-  const logoContainer = document.getElementById("logo-container");
+  const logoContainer = document.querySelector('.logo-container');
 
   // if browser supports full screen, request full screen
   /* View in fullscreen */
-function openFullscreen() {
-  if (logoContainer.requestFullscreen) {
-    logoContainer.requestFullscreen();
-  } else if (logoContainer.webkitRequestFullscreen) { /* Safari */
-    logoContainer.webkitRequestFullscreen();
-  } else if (logoContainer.msRequestFullscreen) { /* IE11 */
-    logoContainer.msRequestFullscreen();
+  function openFullscreen() {
+    if (logoContainer.requestFullscreen) {
+      logoContainer.requestFullscreen();
+    } else if (logoContainer.webkitRequestFullscreen) { /* Safari */
+      logoContainer.webkitRequestFullscreen();
+    } else if (logoContainer.msRequestFullscreen) { /* IE11 */
+      logoContainer.msRequestFullscreen();
+    }
   }
-}
 
-/* Close fullscreen */
-function closeFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.webkitExitFullscreen) { /* Safari */
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) { /* IE11 */
-    document.msExitFullscreen();
+  /* Close fullscreen */
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
+    }
   }
-}
 
-//  toggle fullscreen
-let isFullscreen = false;
-logoContainer.addEventListener("click", function() {
-  if (!isFullscreen) {
-    openFullscreen();
-    isFullscreen = true;
-  } else {
-    closeFullscreen();
-    isFullscreen = false;
-  }
-  isFullscreen = !isFullscreen;
-})
-  
+  //  toggle fullscreen
+  let isFullscreen = false;
+  logoContainer.addEventListener("click", function() {
+    if (!isFullscreen) {
+      openFullscreen();
+      isFullscreen = true;
+    } else {
+      closeFullscreen();
+      isFullscreen = false;
+    }
+    isFullscreen = !isFullscreen;
+  })
+    
 });
 
 // Add the modal styles
