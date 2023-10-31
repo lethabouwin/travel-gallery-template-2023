@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Update the modal content
     modal.innerHTML = `
       <div class="modal-content">
-        <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
+          <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
       </div>
 
       <div class="destination-main-container">
-        <div>
+        <div id="logo-container">
           <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
         </div>
 
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
 
         ${imagesContainer.outerHTML}
+
       </div>
     `;
   }
@@ -77,14 +78,46 @@ document.addEventListener("DOMContentLoaded", function() {
     populateModal(imagesDublin, "Dublin, Ireland");
   });
 
+  
+  // reference the logo container. on click, open full screen
+  const logoContainer = document.getElementById("logo-container");
 
-  // Add an overlay to the modal with the name of the image that was clicked
-  const destinationImages = document.querySelectorAll(".destination-images-container img");
-  destinationImages.forEach((destinationImage) => {
-    destinationImage.addEventListener("click", function() {
-      fullView(destinationImage.src);
-    });
-  });
+  // if browser supports full screen, request full screen
+  /* View in fullscreen */
+function openFullscreen() {
+  if (logoContainer.requestFullscreen) {
+    logoContainer.requestFullscreen();
+  } else if (logoContainer.webkitRequestFullscreen) { /* Safari */
+    logoContainer.webkitRequestFullscreen();
+  } else if (logoContainer.msRequestFullscreen) { /* IE11 */
+    logoContainer.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+
+//  toggle fullscreen
+let isFullscreen = false;
+logoContainer.addEventListener("click", function() {
+  if (!isFullscreen) {
+    openFullscreen();
+    isFullscreen = true;
+  } else {
+    closeFullscreen();
+    isFullscreen = false;
+  }
+  isFullscreen = !isFullscreen;
+})
+  
 });
 
 // Add the modal styles
@@ -111,13 +144,15 @@ modalStyle.innerHTML = `
     justify-content: flex-end;
     display: flex;
     padding: 10px;
-    
+    position: relative;
   }
 
   #close-modal {
     cursor: pointer;  
     position: absolute;
     z-index: 1;
+    top: 10px;
+    right: 10px;
   }
 
   #close-modal:hover {

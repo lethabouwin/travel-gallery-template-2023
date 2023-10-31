@@ -115,8 +115,8 @@
     const locationsContainer = document.querySelector('.locations-container');
 
     const locationsData = [
-        { name: 'Port Louis, Mauritius', description: `Date: .` },
-        { name: 'Dublin, Ireland', description: `Date: .` },
+        { name: 'Port Louis, Mauritius', description: `From 02 – 07 June 2023.` },
+        { name: 'Dublin, Ireland', description: `From 24 - 30 April 2023.` },
         { name: 'In Progress', description: 'This trip is in progress!' },
         { name: 'In Progress', description: 'This trip is in progress!' },
         { name: 'In Progress', description: 'This trip is in progress!' },

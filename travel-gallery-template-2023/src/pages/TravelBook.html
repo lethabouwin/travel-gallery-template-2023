@@ -32,7 +32,7 @@
 
   /* map styling */
   .location-viewer {
-      cursor: pointer;
+      cursor: pointer
   }
 
   .location-viewer:hover {
@@ -188,11 +188,7 @@
 <div class="container">
 <div class="row" style="text-align:center;">
     <div class="col-xs-12 header" style="background:white;color:white;padding: 5px; margin-bottom:5px; ">
-
-      <img src="/public/images/UI - Logo-02.png" alt="logo image" width="60px;">
-
-      
-
+      <img src="../assets/images/UI - Logo-02.png" alt="logo image" width="60px;">
     </div>
 </div>
 </div>
@@ -3876,7 +3872,16 @@
 <div class="locations-container"></div>
 
 <!-- conditionally render as overlay when the location-1 is clicked -->
-<div id="gallery-pop-up"></div>
+<div id="gallery-pop-up">
+  <style>
+    #close-modal {
+      position: fixed;
+      top: 10px;
+
+
+    }
+  </style>
+</div>
 <script src="./gallery-pop-up.js" type="module" defer></script>
 
 
@@ -3913,10 +3918,24 @@
           </div>
           <img class="shelf-img" src="../assets/images/shelf_wood.png">        
         </div>
+
+        <!-- scroll up functionality -->
+        <div style="display: flex; justify-content: flex-end; padding-right: 0%; cursor: pointer; position: fixed; bottom: 30px; right: 30px; z-index: 99; ">
+          <img src="../assets/ScrollBtn.svg" alt="logo image" id="scroll-btn" width="15%;">
+          
+          <script>
+            // onClick of the scroll-btn, navigate back to the top of the page
+            document.getElementById("scroll-btn").onclick = function () {
+              document.body.scrollTop = 0; // For Safari
+              document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            };
+          </script>
+        </div>
+
         
         <script>            
-  var option_my_flipbook = {webgl:false};  
-  </script>      
+          var option_my_flipbook = {webgl:false};  
+        </script>      
       </div>      
   </div>
 </div>
