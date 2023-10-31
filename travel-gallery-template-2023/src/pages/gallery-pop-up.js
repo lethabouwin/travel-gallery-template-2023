@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
 
         <div class="location-name">
-          <h2 style="color: white; letter-spacing: 5px">${locationName}</h2>
+          <h2 style="color: #1091ce; letter-spacing: 5px">${locationName}</h2>
         </div>
 
         ${imagesContainer.outerHTML}
@@ -68,13 +68,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // When "location-1" is clicked, display the modal with imagesMauritius
   location1.addEventListener("click", function() {
     openModal();
-    populateModal(imagesMauritius, "Mauritius -  BMW");
+    populateModal(imagesMauritius, "Port Louis, Mauritius");
   });
 
   // When "location-2" is clicked, display the modal with imagesDublin
   location2.addEventListener("click", function() {
     openModal();
-    populateModal(imagesDublin, "Dublin - Sanlam");
+    populateModal(imagesDublin, "Dublin, Ireland");
   });
 
 
@@ -116,6 +116,8 @@ modalStyle.innerHTML = `
 
   #close-modal {
     cursor: pointer;  
+    position: absolute;
+    z-index: 1;
   }
 
   #close-modal:hover {

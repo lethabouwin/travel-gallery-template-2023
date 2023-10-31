@@ -81,7 +81,7 @@
               }
             
               .location-circle-marker-3 {
-                background-image: linear-gradient(to right, #7497F3, #856EF4);
+                background-image: linear-gradient(to right, #969696, #969696);
               }
             
               .location-circle-marker-3:hover {
@@ -90,7 +90,7 @@
               }
             
               .location-circle-marker-4 {
-                background-image: linear-gradient(to right, #E246F0, #8C46F0);
+                background-image: linear-gradient(to right, #969696, #969696);
             }
             
               .location-circle-marker-4:hover {
@@ -99,7 +99,7 @@
               }
             
               .location-circle-marker-5 {
-                background-image: linear-gradient(to right, #8CC6F0, #8C91F0);
+                background-image: linear-gradient(to right, #969696, #969696);
               }
             
               .location-circle-marker-5:hover {
@@ -115,8 +115,8 @@
     const locationsContainer = document.querySelector('.locations-container');
 
     const locationsData = [
-        { name: 'Port Louis, Mauritius', description: `BMW South Africa's trip to Mauritius.` },
-        { name: 'Dublin, Ireland', description: `Sanlam's trip to Ireland.` },
+        { name: 'Port Louis, Mauritius', description: `Date: .` },
+        { name: 'Dublin, Ireland', description: `Date: .` },
         { name: 'In Progress', description: 'This trip is in progress!' },
         { name: 'In Progress', description: 'This trip is in progress!' },
         { name: 'In Progress', description: 'This trip is in progress!' },
@@ -147,10 +147,10 @@
 
         locationsContainer.appendChild(location);
     });
+
+    // add an event listener to the location name elements. When 'Port Louis, Mauritius' is clicked, open the modal populated with Mauritius images
+    const location1 = document.querySelector('.location-name');
+
 })();
 
 
-/*
-    logic to open DestinationView on click of circle in TravelBook.html
-
-*/
