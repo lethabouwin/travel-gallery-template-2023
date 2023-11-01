@@ -13,102 +13,143 @@ document.addEventListener("DOMContentLoaded", function() {
   const imagesContainer = document.createElement("div");
   imagesContainer.className = "destination-images-container";
 
-// Function to populate the modal with images
-function populateModal(locationImages, locationName) {
-  imagesContainer.innerHTML = '';
-  locationImages.forEach((image, index) => {
-    const img = document.createElement("img");
-    img.src = image;
-    img.alt = 'destination image';
-    img.className = `destination-image-${index + 1}`;
-    imagesContainer.appendChild(img);
-  });
+  // Variable to keep track of current image index
+  let currentImageIndex = 0;
 
-  // Update the modal content
-  modal.innerHTML = `
-    <div class="modal-content">
-        <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
-    </div>
+  // Function to populate the modal with images
+  function populateModal(locationImages, locationName) {
+    // Store location images in a variable
+    const images = locationImages;
 
-    <div class="destination-main-container">
-      <div class="logo-container">
-        <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
+    // Update current image index to start from the first image
+    currentImageIndex = 0;
+
+    imagesContainer.innerHTML = "";
+    locationImages.forEach((image, index) => {
+      const img = document.createElement("img");
+      img.src = image;
+      img.alt = "destination image";
+      img.className = `destination-image-${index + 1}`;
+      imagesContainer.appendChild(img);
+    });
+
+    // Update the modal content
+    modal.innerHTML = `
+      <div class="modal-content">
+          <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
+          <button id="prev-button">Previous</button>
+          <button id="next-button">Next</button>
       </div>
 
-      <div class="location-name">
-        <h2 style="color: #1091ce; letter-spacing: 5px">${locationName}</h2>
+      <div class="destination-main-container">
+        <div class="logo-container">
+          <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
+        </div>
+
+        <div class="location-name">
+          <h2 style="color: #1091ce; letter-spacing: 5px">${locationName}</h2>
+        </div>
       </div>
-    </div>
-  `;
+    `;
 
-  // Append images container after setting innerHTML
-  document.querySelector(".destination-main-container").appendChild(imagesContainer);
-    
-  // reference the logo container. on click, open full screen
+    // Append images container after setting innerHTML
+    document.querySelector(".destination-main-container").appendChild(imagesContainer);
 
-  // if browser supports full screen, request full screen
-  /* View in fullscreen */
-  function openFullscreen(element) {
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.webkitRequestFullscreen) { /* Safari */
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) { /* IE11 */
-      element.msRequestFullscreen();
-    } else if (element.mozRequestFullScreen) { /* Firefox */
-      element.mozRequestFullScreen();
+    // reference the logo container. on click, open full screen
+
+    // if browser supports full screen, request full screen
+    /* View in fullscreen */
+    function openFullscreen(element) {
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.webkitRequestFullscreen) {
+        /* Safari */
+        element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) {
+        /* IE11 */
+        element.msRequestFullscreen();
+      } else if (element.mozRequestFullScreen) {
+        /* Firefox */
+        element.mozRequestFullScreen();
+      }
     }
-  }
 
-  /* Close fullscreen */
-  function closeFullscreen() {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-      document.msExitFullscreen();
-    } else if (document.mozCancelFullScreen) { /* Firefox */
-      document.mozCancelFullScreen();
+    /* Close fullscreen */
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        /* IE11 */
+        document.msExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        /* Firefox */
+        document.mozCancelFullScreen();
+      }
     }
-  }
 
-  // toggle fullscreen for each image
-  const selectedImages = imagesContainer.querySelectorAll('img');
-  
-  selectedImages.forEach((image) => {
-    image.addEventListener("click", function() {
-      const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+    // toggle fullscreen for each image
+    const selectedImages = imagesContainer.querySelectorAll("img");
 
-      if (!isFullScreen) {
-        openFullscreen(this);
-      } else {
-        closeFullscreen();
+    selectedImages.forEach((image, index) => {
+      image.addEventListener("click", function() {
+        currentImageIndex = index;
+        
+         const isFullScreen =
+          document.fullscreenElement ||
+          document.webkitFullscreenElement ||
+          document.mozFullScreenElement ||
+          document.msFullscreenElement;
+
+         if (!isFullScreen) {
+           openFullscreen(this);
+         } else {
+           closeFullscreen();
+         }
+      });
+    });
+
+    // Get previous and next buttons
+    const prevButton = document.getElementById("prev-button");
+    const nextButton = document.getElementById("next-button");
+
+    // Event listener for previous button
+    prevButton.addEventListener("click", function() {
+      if (currentImageIndex > 0) {
+        currentImageIndex--;
+        openFullscreen(selectedImages[currentImageIndex]);
       }
     });
-  });
-};
 
+    // Event listener for next button
+    nextButton.addEventListener("click", function() {
+      if (currentImageIndex < selectedImages.length - 1) {
+        currentImageIndex++;
+        openFullscreen(selectedImages[currentImageIndex]);
+      }
+    });
+  }
 
   // Function to open the modal
   function openModal() {
     modal.style.display = "block";
-    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.overflow = "hidden";
   }
 
   // Function to close the modal
   function closeModal() {
     modal.style.display = "none";
-    document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.overflow = "auto";
   }
 
-  // When the user clicks the "close-modal" img, the modal should close 
-  modal.addEventListener("click", function() {
+  // When the user clicks the "close-modal" img, the modal should close
+  modal.addEventListener("click", function(event) {
     if (event.target.id === "close-modal") {
       closeModal();
     }
-  })
-
+  });
 
   // When "location-1" is clicked, display the modal with imagesMauritius
   location1.addEventListener("click", function() {
@@ -121,8 +162,6 @@ function populateModal(locationImages, locationName) {
     openModal();
     populateModal(imagesDublin, "Dublin, Ireland");
   });
-
-    
 });
 
 // Add the modal styles
