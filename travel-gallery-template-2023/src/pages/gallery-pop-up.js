@@ -1,7 +1,6 @@
 import { imagesDublin } from "../components/imagesDublin.js";
 import { imagesMauritius } from "../components/imagesMauritius.js";
 
-
 document.addEventListener("DOMContentLoaded", function() {
   // Get the "location-x" elements
   const location1 = document.getElementById("location-1");
@@ -14,37 +13,82 @@ document.addEventListener("DOMContentLoaded", function() {
   const imagesContainer = document.createElement("div");
   imagesContainer.className = "destination-images-container";
 
-  // Function to populate the modal with images
-  function populateModal(locationImages, locationName) {
-    imagesContainer.innerHTML = '';
-    locationImages.forEach((image, index) => {
-      const img = document.createElement("img");
-      img.src = image;
-      img.alt = 'destination image';
-      img.className = `destination-image-${index + 1}`;
-      imagesContainer.appendChild(img);
-    });
+// Function to populate the modal with images
+function populateModal(locationImages, locationName) {
+  imagesContainer.innerHTML = '';
+  locationImages.forEach((image, index) => {
+    const img = document.createElement("img");
+    img.src = image;
+    img.alt = 'destination image';
+    img.className = `destination-image-${index + 1}`;
+    imagesContainer.appendChild(img);
+  });
 
-    // Update the modal content
-    modal.innerHTML = `
-      <div class="modal-content">
-          <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
+  // Update the modal content
+  modal.innerHTML = `
+    <div class="modal-content">
+        <img src="../assets/CloseBtn.svg" alt="close button" id="close-modal" width="20px">
+    </div>
+
+    <div class="destination-main-container">
+      <div class="logo-container">
+        <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
       </div>
 
-      <div class="destination-main-container">
-        <div class="logo-container">
-          <img src="../assets/images/UI - Logo-02.png" class="logo" alt="logo image">
-        </div>
-
-        <div class="location-name">
-          <h2 style="color: #1091ce; letter-spacing: 5px">${locationName}</h2>
-        </div>
-
-        ${imagesContainer.outerHTML}
-
+      <div class="location-name">
+        <h2 style="color: #1091ce; letter-spacing: 5px">${locationName}</h2>
       </div>
-    `;
+    </div>
+  `;
+
+  // Append images container after setting innerHTML
+  document.querySelector(".destination-main-container").appendChild(imagesContainer);
+    
+  // reference the logo container. on click, open full screen
+
+  // if browser supports full screen, request full screen
+  /* View in fullscreen */
+  function openFullscreen(element) {
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) { /* Safari */
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { /* IE11 */
+      element.msRequestFullscreen();
+    } else if (element.mozRequestFullScreen) { /* Firefox */
+      element.mozRequestFullScreen();
+    }
   }
+
+  /* Close fullscreen */
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) { /* Firefox */
+      document.mozCancelFullScreen();
+    }
+  }
+
+  // toggle fullscreen for each image
+  const selectedImages = imagesContainer.querySelectorAll('img');
+  
+  selectedImages.forEach((image) => {
+    image.addEventListener("click", function() {
+      const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+
+      if (!isFullScreen) {
+        openFullscreen(this);
+      } else {
+        closeFullscreen();
+      }
+    });
+  });
+};
+
 
   // Function to open the modal
   function openModal() {
@@ -78,45 +122,6 @@ document.addEventListener("DOMContentLoaded", function() {
     populateModal(imagesDublin, "Dublin, Ireland");
   });
 
-  
-  // reference the logo container. on click, open full screen
-  const logoContainer = document.querySelector('.logo-container');
-
-  // if browser supports full screen, request full screen
-  /* View in fullscreen */
-  function openFullscreen() {
-    if (logoContainer.requestFullscreen) {
-      logoContainer.requestFullscreen();
-    } else if (logoContainer.webkitRequestFullscreen) { /* Safari */
-      logoContainer.webkitRequestFullscreen();
-    } else if (logoContainer.msRequestFullscreen) { /* IE11 */
-      logoContainer.msRequestFullscreen();
-    }
-  }
-
-  /* Close fullscreen */
-  function closeFullscreen() {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-      document.msExitFullscreen();
-    }
-  }
-
-  //  toggle fullscreen
-  let isFullscreen = false;
-  logoContainer.addEventListener("click", function() {
-    if (!isFullscreen) {
-      openFullscreen();
-      isFullscreen = true;
-    } else {
-      closeFullscreen();
-      isFullscreen = false;
-    }
-    isFullscreen = !isFullscreen;
-  })
     
 });
 
